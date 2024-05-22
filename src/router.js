@@ -11,26 +11,22 @@ export const router = createRouter({
             alias: '/:pathMatch(.*)*',
             component: PageNotFound,
             meta: {
-                title: '404 - LogCenter'
+                title: '404 - TinyTicket'
             }
         },
         {
             path: '/settings',
             component: Settings,
             meta: {
-                title: 'Settings - LogCenter'
+                title: 'Settings - TinyTicket'
             }
         },
         {
             path: '/',
-            component: Settings,
-            meta: {
-                title: 'Home - LogCenter'
-            }
-        },
-        {
-            path: '/view/:view',
             component: Dashboard,
+            meta: {
+                title: 'Home - TinyTicket'
+            }
         }
     ]
 })

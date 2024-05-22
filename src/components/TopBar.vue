@@ -2,7 +2,7 @@
     <v-app-bar>
         <router-link class="d-inline-flex align-center mx-4" to="/">
             <img src="/src/assets/logo.png" height="36" width="36" alt="LogCenter logo"/>
-            <h2 class="font-weight-light ml-2">LogCenter</h2>
+            <h2 class="font-weight-light ml-2">TinyTicket</h2>
         </router-link>
         <v-card class="font-weight-light text-error px-2" variant="outlined">alpha</v-card>
 

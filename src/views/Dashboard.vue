@@ -4,19 +4,7 @@
             <v-text-field v-model="search" density="compact" prepend-inner-icon="mdi-magnify" label="Search" single-line variant="outlined" hide-details></v-text-field>
         </div>
 
-        <v-data-table density="compact" :search="search" :headers="headers" :items="logs" class="font-weight-light mt-4" items-per-page-text="Show">
-            <template v-slot:item="{ item }">
-                <tr :style="`background-color: ${getColor(item.type)};`">
-                    <td class="py-2 px-4">{{ item.timestamp }}</td>
-                    <td class="py-2 px-4">{{ item.message }}</td>
-                    <td class="py-2 px-4" style="text-align: right;">{{ item.type }}</td>
-                </tr>
-            </template>
-
-            <template v-slot:bottom>
-                <v-pagination v-model="page" :length="pageCount" density="compact" class="mt-4"></v-pagination>
-            </template>
-        </v-data-table>
+        <v-data-table :search="search" :headers="headers" :items="tickets" class="font-weight-light mt-4" items-per-page-text="Show"></v-data-table>
     </v-card>
 </template>
 
@@ -43,41 +31,41 @@ function getColor(type) {
 
 const headers = [
     {
-        key: 'timestamp',
-        title: 'Timestamp',
+        key: 'createdOn',
+        title: 'Created On',
         minWidth: '180px'
     },
     {
-        key: 'message',
-        title: 'Message',
+        key: 'createdBy',
+        title: 'Created By',
+        minWidth: '180px'
     },
     {
-        key: 'type',
-        title: 'Type',
-        align: 'end',
+        key: 'subject',
+        title: 'Subject',
     },
+    {
+        key: 'assignedTo',
+        title: 'Assigned To',
+        minWidth: '180px',
+        align: 'end',
+    }
 ]
 
-const logs = [
+const tickets = [
     {
-        timestamp: '2/19/2024, 8:02:27 AM',
-        type: 'Success',
-        message: 'this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good this is good',
+        createdOn: '2/19/2024, 8:02:27 AM',
+        createdBy: 'Jeff Jones',
+        subject: 'Please Help',
+        contents: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+        assignedTo: 'Me'
     },
     {
-        timestamp: '2/19/2024, 8:02:27 AM',
-        type: 'Error',
-        message: 'this is not good',
-    },
-    {
-        timestamp: '2/19/2024, 8:02:27 AM',
-        type: 'asdf',
-        message: 'asdf',
-    },
-    {
-        timestamp: '2/19/2024, 8:02:27 AM',
-        type: 'Error',
-        message: 'this is not good',
-    },
+        createdOn: '2/19/2024, 8:02:27 AM',
+        createdBy: 'Mark Smith',
+        subject: 'AAAAHHH',
+        contents: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+        assignedTo: 'Me'
+    }
 ]
 </script>
