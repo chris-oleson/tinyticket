@@ -13,8 +13,41 @@ export const useStore = defineStore('store', {
             color: ''
         },
 
-        allItems: [],
-        allItemHistory: [],
+        selectedView: 0,
+        views: [
+            {
+                name: "Chris' Tickets",
+                filters: {
+                    assignedTo: 'Me',
+                    status: [
+                        'New',
+                        'In Progress',
+                    ]
+                }
+            },
+            {
+                name: 'All Tickets',
+                filters: {
+                    assignedTo: 'Any',
+                    status: [
+                        'New',
+                        'In Progress',
+                        'Awaiting Response'
+                    ]
+                }
+            },
+            {
+                name: 'Unassigned Tickets',
+                filters: {
+                    assignedTo: 'None',
+                    status: [
+                        'New',
+                        'In Progress',
+                        'Completed',
+                    ]
+                }
+            },
+        ],
     }),
     
     persist: false,

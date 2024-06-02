@@ -26,7 +26,7 @@ import SideBar from '/src/components/SideBar'
 
 // Update site title when page changes
 watch(route, (newRoute) => {
-    document.title = newRoute.meta.title
+    document.title = newRoute.meta.title ? newRoute.meta.title : store.views[store.selectedView].name + " - TinyTicket"
 })
 
 // Update current theme

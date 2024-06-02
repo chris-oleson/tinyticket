@@ -27,6 +27,10 @@ export const router = createRouter({
             meta: {
                 title: 'Home - TinyTicket'
             }
+        },
+        {
+            path: '/view/:view',
+            component: Dashboard,
         }
     ]
 })

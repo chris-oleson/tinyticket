@@ -9,25 +9,16 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useStore } from '/src/pinia'
 const store = useStore()
-
+const view = store.views[store.selectedView]
 const search = ref('')
 const page = ref(1)
 const itemsPerPage = 10
 const pageCount = computed(() => {
     return Math.ceil(logs.length / itemsPerPage)
 })
-
-function getColor(type) {
-    for (let logType of store.logTypes) {
-        if (logType.name.toLowerCase() == type.toLowerCase()) {
-            return logType.color
-        }
-    }
-    return '#fff'
-}
 
 const headers = [
     {
