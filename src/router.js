@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Settings from '/src/views/Settings'
 import PageNotFound from '/src/views/PageNotFound'
 import Dashboard from '/src/views/Dashboard'
+import Ticket from '/src/views/Ticket'
 
 export const router = createRouter({
     history: createWebHistory(),
@@ -31,6 +32,10 @@ export const router = createRouter({
         {
             path: '/view/:view',
             component: Dashboard,
+        },
+        {
+            path: '/ticket/:ticket',
+            component: Ticket,
         }
     ]
 })

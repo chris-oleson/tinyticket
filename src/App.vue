@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <TopBar/>
-        <SideBar/>
+        <SideBar v-if="!route.path.includes('/ticket/')"/>
         <v-main>
             <router-view/>
             <v-snackbar v-model="showNotification" :color="notificationColor" app transition="slide-y-transition" timeout="3000">
