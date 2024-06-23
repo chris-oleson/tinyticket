@@ -4,15 +4,30 @@
             <v-text-field v-model="search" density="compact" prepend-inner-icon="mdi-magnify" label="Search" single-line variant="outlined" hide-details></v-text-field>
         </div>
 
-        <v-data-table :search="search" :headers="headers" :items="tickets" class="font-weight-light mt-4" items-per-page-text="Show" hover @click:row="showTicket"></v-data-table>
+        <v-data-table :search="search" :headers="headers" :items="store.tickets" class="font-weight-light mt-4" items-per-page-text="Show" hover>
+            <template v-slot:item="{ item }">
+                <tr @click="router.push('/ticket/' + item.id)">
+                    <td>{{ item.createdOn }}</td>
+                    <td>{{ parseArray(item.contact) }}</td>
+                    <td>{{ item.subject }}</td>
+                    <td>{{ parseArray(item.assignedTo) }}</td>
+                </tr>
+            </template>
+        </v-data-table>
     </v-card>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useStore } from '/src/pinia'
 const store = useStore()
 const search = ref('')
+import {useRouter } from 'vue-router'
+const router = useRouter()
+
+function parseArray(array) {
+    return array.join(", ")
+}
 
 const headers = [
     {
@@ -37,34 +52,4 @@ const headers = [
     }
 ]
 
-function showTicket(event, row) {
-    console.log(row.item)
-}
-
-const tickets = [
-    {
-        id: 1,
-        createdOn: '2/19/2024, 8:02:27 AM',
-        contact: ['Jeff Jones'],
-        subject: 'Please Help',
-        contents: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
-        assignedTo: 'Me'
-    },
-    {
-        id: 2,
-        createdOn: '2/19/2024, 8:02:27 AM',
-        contact: ['Mark Smith'],
-        subject: 'AAAAHHH',
-        contents: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-            It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
-        assignedTo: 'Me'
-    }
-]
 </script>
