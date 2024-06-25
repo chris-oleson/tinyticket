@@ -1,14 +1,19 @@
 <template>
-    <v-card elevation="4" class="ma-8 pa-8">
-        <div style="width: 300px">
-            <v-text-field v-model="search" density="compact" prepend-inner-icon="mdi-magnify" label="Search" single-line variant="outlined" hide-details></v-text-field>
-        </div>
+    <v-card elevation="4" class="ma-4 pa-4">
+        <v-row class="align-center ma-0">
+            <v-col cols="6">
+                <v-text-field v-model="search" density="compact" prepend-inner-icon="mdi-magnify" label="Search" single-line variant="outlined" hide-details></v-text-field>
+            </v-col>
+            <v-col cols="6" class="text-right">
+                <v-btn icon="mdi-content-save" variant="plain"></v-btn>
+            </v-col>
+        </v-row>
 
         <v-data-table :search="search" :headers="headers" :items="store.tickets" class="font-weight-light mt-4" items-per-page-text="Show" hover>
             <template v-slot:item="{ item }">
-                <tr @click="router.push('/ticket/' + item.id)">
-                    <td>{{ item.createdOn }}</td>
-                    <td>{{ parseArray(item.contact) }}</td>
+                <tr @click="router.push('/ticket/' + item.id)" :class="item.read ? 'font-weight-light' : 'font-weight-bold'">
+                    <td>{{ item.created }}</td>
+                    <td>{{ parseArray(item.contacts) }}</td>
                     <td>{{ item.subject }}</td>
                     <td>{{ parseArray(item.assignedTo) }}</td>
                 </tr>
@@ -31,14 +36,12 @@ function parseArray(array) {
 
 const headers = [
     {
-        key: 'createdOn',
+        key: 'created',
         title: 'Created On',
-        minWidth: '180px'
     },
     {
-        key: 'contact',
-        title: 'Contact',
-        minWidth: '180px'
+        key: 'contacts',
+        title: 'Contacts',
     },
     {
         key: 'subject',
@@ -47,8 +50,6 @@ const headers = [
     {
         key: 'assignedTo',
         title: 'Assigned To',
-        minWidth: '180px',
-        align: 'end',
     }
 ]
 

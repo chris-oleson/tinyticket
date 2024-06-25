@@ -52,27 +52,31 @@ export const useStore = defineStore('store', {
         tickets: [
             {
                 id: 1,
-                createdOn: '2/19/2024, 8:02:27 AM',
-                contact: ['Jeff Jones'],
+                created: '2/19/2024, 8:02:27 AM',
+                updated: '2/19/2024, 8:02:27 AM',
+                contacts: ['Jeff Jones'],
                 subject: 'Please Help',
                 contents: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
                     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
-                assignedTo: ['Me']
+                assignedTo: ['Me'],
+                read: true
             },
             {
                 id: 2,
-                createdOn: '2/19/2024, 8:02:27 AM',
-                contact: ['Mark Smith', 'Bilbo Baggins'],
+                created: '2/19/2024, 8:02:27 AM',
+                updated: '2/19/2024, 8:02:27 AM',
+                contacts: ['Mark Smith', 'Bilbo Baggins'],
                 subject: 'AAAAHHH',
                 contents: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
                     It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
                     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
-                assignedTo: ['Me', 'Bilbo Baggins']
+                assignedTo: ['Me', 'Bilbo Baggins'],
+                read: false
             }
         ]
     }),

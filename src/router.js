@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Settings from '/src/views/Settings'
 import PageNotFound from '/src/views/PageNotFound'
-import Dashboard from '/src/views/Dashboard'
+import View from '/src/views/View'
 import Ticket from '/src/views/Ticket'
 
 export const router = createRouter({
@@ -24,14 +24,14 @@ export const router = createRouter({
         },
         {
             path: '/',
-            component: Dashboard,
+            component: View,
             meta: {
                 title: 'Home - TinyTicket'
             }
         },
         {
             path: '/view/:view',
-            component: Dashboard,
+            component: View,
         },
         {
             path: '/ticket/:ticket',
