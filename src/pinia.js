@@ -16,6 +16,8 @@ export const useStore = defineStore('store', {
         selectedView: 0,
         views: [
             {
+                id: 1,
+                position: 0,
                 name: "Chris' Tickets",
                 filters: {
                     assignedTo: 'Me',
@@ -26,6 +28,8 @@ export const useStore = defineStore('store', {
                 }
             },
             {
+                id: 2,
+                position: 1,
                 name: 'All Tickets',
                 filters: {
                     assignedTo: 'Any',
@@ -37,6 +41,8 @@ export const useStore = defineStore('store', {
                 }
             },
             {
+                id: 3,
+                position: 2,
                 name: 'Unassigned Tickets',
                 filters: {
                     assignedTo: 'None',

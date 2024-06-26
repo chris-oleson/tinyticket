@@ -1,7 +1,7 @@
 <template>
     <v-navigation-drawer permanent floating elevation="4">
         <v-list class="font-weight-light pa-0">
-            <v-list-item v-for="view, index in store.views" v-bind:key="view" replace slim class="py-4" @click="changeView(index)">{{ view.name }}</v-list-item>
+            <v-list-item v-for="view, index in store.views" v-bind:key="view" replace slim class="py-4" @click="changeView(view, index)">{{ view.name }}</v-list-item>
         </v-list>
     </v-navigation-drawer>
 </template>
