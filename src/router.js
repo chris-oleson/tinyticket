@@ -12,30 +12,42 @@ export const router = createRouter({
             alias: '/:pathMatch(.*)*',
             component: PageNotFound,
             meta: {
-                title: '404 - TinyTicket'
+                title: '404'
             }
         },
         {
             path: '/settings',
             component: Settings,
             meta: {
-                title: 'Settings - TinyTicket'
+                title: 'Settings'
             }
         },
         {
             path: '/',
             component: View,
             meta: {
-                title: 'Home - TinyTicket'
+                title: 'Home'
             }
         },
         {
             path: '/view/:view',
             component: View,
+            meta: {
+                title: 'View'
+            }
         },
         {
             path: '/ticket/:ticket',
             component: Ticket,
+            meta: {
+                title: 'Ticket'
+            }
         }
     ]
+})
+
+router.afterEach(to => {
+    if (to.meta.title) {
+      document.title = `${to.meta.title} - TinyTicket`;
+    }
 })

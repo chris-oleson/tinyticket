@@ -24,11 +24,6 @@ const route = useRoute()
 import TopBar from '/src/components/TopBar'
 import SideBar from '/src/components/SideBar'
 
-// Update site title when page changes
-watch(route, (newRoute) => {
-    document.title = newRoute.meta.title ? newRoute.meta.title : store.views[store.selectedView].name + " - TinyTicket"
-})
-
 // Update current theme
 setTheme()
 watch(() => store.theme, () => {

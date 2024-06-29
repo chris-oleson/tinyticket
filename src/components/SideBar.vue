@@ -13,7 +13,6 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 function changeView(view) {
-    store.selectedView = view
     router.push('/view/' + view)
 }
 </script>
