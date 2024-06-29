@@ -6,6 +6,10 @@
         </router-link>
         <v-card class="font-weight-light text-error px-2" variant="outlined">alpha</v-card>
 
+        <v-divider inset vertical class="mx-4"/>
+
+        <v-btn variant="elevated" color="primary">New Ticket</v-btn>
+
         <v-spacer/>
 
         <!-- Dashboard menu -->

@@ -43,6 +43,8 @@ const store = useStore()
 function addView() {
     // Backend request
     store.views.push({
+        id: 0,
+        position: store.views.length,
         name: "New View",
         filters: {
             assignedTo: 'Any',
