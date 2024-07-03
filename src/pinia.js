@@ -61,6 +61,7 @@ export const useStore = defineStore('store', {
                 id: 1,
                 created: '2/19/2024, 8:02:27 AM',
                 updated: '2/19/2024, 8:02:27 AM',
+                organization: 'McDonalds',
                 contacts: ['Jeff Jones'],
                 subject: 'Please Help',
                 details: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -75,6 +76,7 @@ and more recently with desktop publishing software like Aldus PageMaker includin
                 id: 2,
                 created: '2/19/2024, 8:02:27 AM',
                 updated: '2/19/2024, 8:02:27 AM',
+                organization: 'CIA',
                 contacts: ['Mark Smith', 'Bilbo Baggins'],
                 subject: 'AAAAHHH',
                 details: `Lorem Ipsum is simply dummy text of the printing and typesetting industry.
@@ -87,7 +89,9 @@ and more recently with desktop publishing software like Aldus PageMaker includin
             }
         ],
 
-        people: ['Me', 'Bilbo Baggins', 'Gollum', 'Thorin Oakenshield']
+        people: ['Me', 'Bilbo Baggins', 'Gollum', 'Thorin Oakenshield'],
+
+        organizations: ['CIA', 'McDonalds']
     }),
     
     persist: false,
